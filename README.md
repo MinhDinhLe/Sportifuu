@@ -22,7 +22,7 @@ Java Springboot,Angular,Mongodb,Firebase
 2. Duyệt qua các nghệ sĩ và bài hát.
 3. Thêm bài hát vào danh sách phát của bạn.
 
-## Cộng tác
+## Demo
 
-Đóng góp được chào đón! Vui lòng mở một yêu cầu kéo với các thay đổi được đề xuất của bạn.
+(https://www.youtube.com/watch?v=4zr5o2oknvM)
 
