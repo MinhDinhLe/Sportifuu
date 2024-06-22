@@ -3,20 +3,13 @@
 Ứng dụng web này cho phép người dùng duyệt qua các nghệ sĩ, bài hát và tạo danh sách phát của riêng họ. Họ cũng có thể tải nhạc để nghe ngoại tuyến.
 
 ## Tính năng
-User:
 - Duyệt theo nghệ sĩ và bài hát
 - Tạo và quản lý danh sách phát
-Admin:
 -CRUD tài khoản
 -CRUD bài hát,ca sĩ
 
 ## Công nghệ được sử dụng
-JAVA:
-- Springboot
-- JWT
-Angular:
-JAVA:
-JAVA:
+Java Springboot,Angular,Mongodb,Firebase
 ## Cài đặt
 
 1. Sao chép kho lưu trữ: `git clone`
