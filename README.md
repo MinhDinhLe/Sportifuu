@@ -4,7 +4,6 @@
 
 ## Tính năng
 User:
-- JWT
 - Duyệt theo nghệ sĩ và bài hát
 - Tạo và quản lý danh sách phát
 Admin:
@@ -12,7 +11,12 @@ Admin:
 -CRUD bài hát,ca sĩ
 
 ## Công nghệ được sử dụng
--JAVA Springboot,Angular,Firebase
+JAVA:
+- Springboot
+- JWT
+Angular:
+MongoDB:
+Firebase:
 ## Cài đặt
 
 1. Sao chép kho lưu trữ: `git clone`
