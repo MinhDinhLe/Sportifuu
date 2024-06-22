@@ -1,0 +1,88 @@
+<style>
+    .main {
+        background: linear-gradient(to bottom, rgb(30, 30, 30) 0%, rgb(18, 18, 18) 80%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Đặt chiều cao của main bằng 100% viewport height */
+    }
+
+    .content {
+        border-radius: 10px;
+        background: linear-gradient(to bottom, rgb(18,18,18) 0%, rgb(30,30, 30) 80%);
+        width: 50vw;
+        height: 100vw;
+        padding: 30px; /* Thêm khoảng cách nội dung */
+        margin-left: 40px;
+    }
+    .main-content {
+        display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    text-align: center; /* Căn giữa văn bản */
+    }
+    .dangnhap {
+        padding-top: 50px;
+        font-family: 'CircularStd', sans-serif;
+        color: white;
+    }
+    .form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: transparent; /* Đặt nền trong suốt cho ô input */
+    color: white; /* Đặt màu chữ là trắng để dễ nhìn */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Thêm viền với màu trong suốt */
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Đặt màu chữ của placeholder là trắng mờ */
+}
+.btn {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #1db954;
+    color: #fff;
+}
+</style>
+<div class="main">
+    <div class="content">
+        <div class="main-content">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="https://zeevector.com/wp-content/uploads/Spotify-Black-and-White-Logo.png" width="78" height="24"
+                class="me-2">
+        </a>
+        <h1 class="dangnhap">Đăng Nhập Vào Sportifu</h1>
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" placeholder="Email hoặc tên người dùng">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" [(ngModel)]="password" name="password" id="password" placeholder="Mật khẩu">
+                </div>
+                <button type="submit" (click)="dangnhap()" class="btn btn-success">Đăng nhập</button>
+            </form>
+            <div class="mt-3">
+                <a href="#" class="text-white">Quên mật khẩu của bạn?</a>
+            </div>
+            <div class="mt-3">
+                <a href="#" class="text-white text-decoration-none">Bạn chưa có tài khoản?  
+                    <span class="text-decoration-underline">Đăng ký Spotifu</span></a>
+            </div>
+        </div>
+    </div>
+</div>

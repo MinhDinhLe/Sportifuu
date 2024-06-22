@@ -1,0 +1,181 @@
+.container {
+    display: flex;
+    height: 100vh;
+    /* Chiều cao bằng 100% chiều cao của viewport */
+    max-width: none;
+}
+
+.left-sidebar {
+    margin-top: 10px;
+    width: 25vw;
+}
+
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-content {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 64px;
+
+}
+
+.main-content {
+    background: linear-gradient(to bottom, rgb(30, 30, 30) 0%, rgb(18, 18, 18) 30%);
+    flex-grow: 1;
+    /* Chiếm phần còn lại của chiều cao */
+    margin-left: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+
+}
+
+
+.btn-yeuthich {
+    font-family: 'CircularStd', sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 20px;
+}
+
+.gioithieu {
+    position: absolute;
+    max-width: 100%;
+    height: 100px;
+    width: 100%;
+    /* Thêm dòng này để đặt chiều rộng bằng 100% */
+    max-height: 100px;
+    /* Thêm dòng này để giới hạn chiều cao tối đa */
+}
+
+.gioithieu img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.data-overlay {
+    font-family: 'CircularStd', sans-serif;
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    color: white;
+    padding: 5px 10px;
+    /* Điều chỉnh vị trí của các span */
+    top: 100px;
+    left: 10px;
+}
+
+.data-1 {
+    font-size: 50px;
+    top: 100px;
+}
+
+.data-2 {
+    font-size: 20px;
+    top: 190px;
+}
+
+.play-icon-container {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    /* Khoảng cách từ bên trái vào */
+    transition: box-shadow 0.3s ease;
+    /* Hiệu fruit khi hover */
+}
+
+.play-icon-container .fas {
+    font-size: 60px;
+    /* Kích thước icon */
+    color: #1db954;
+    /* Màu sắc icon */
+}
+
+.play-icon-container:hover {
+    transform: scale(1.1);
+}
+
+.phobien {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    padding: 20px;
+    font-family: 'CircularStd', sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    display: grid;
+}
+
+.grid-item {
+    display: grid;
+    grid-template-columns:  auto 1fr;
+    grid-gap: 5px;
+    align-items: center;
+}
+.grid-item:hover{
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px; /* or any other value you want for the border-radius */
+}
+.grid-item:hover .heart-icon {
+    display: inline-block;
+}
+
+.rank {
+    padding-left: 30px;
+    font-size: 24px;
+    font-weight:lighter;
+    color: rgb(85, 85, 85);
+}
+
+.song-info {
+    padding:10px ;
+    display: grid;
+    grid-template-columns: auto 1fr  1fr 1fr 1fr;;
+    grid-gap: 10px;
+    align-items: center;
+    
+}
+
+.song-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.song-title {
+    font-size: 16px;
+}
+.song-title-1,.song-title-2 {
+    padding-left: 60px;
+    font-size: 24px;
+    font-weight: lighter;
+    color: rgb(85, 85, 85);
+}
+.heart-icon {
+    display: none;
+}
+.heart-icon:hover {
+    color:#1db954;
+}

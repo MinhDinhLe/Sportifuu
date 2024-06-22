@@ -1,0 +1,24 @@
+<div class="d-flex flex-row header">
+    <div class="cheveron" style="background: rgb(18, 18, 18);">
+        <a class="fa-solid fa-chevron-left text-decoration-none "   style="color: #888888;"></a>
+        <a class="fa-solid fa-chevron-right text-decoration-none" style="color: #888888;padding-left:9px;"></a>
+    </div>
+    <div class="signup-in">
+        <a class="btn-signup text-decoration-none">Cài đặt ứng dụng</a>
+        <a class="btn-signin text-decoration-none">Khám Phá Prenium</a>
+        <div class="avatar-container">
+            <div class="avatar">
+              <img src="https://yt3.ggpht.com/a/AGF-l78QGTW3gMAN3s_devNGhlzjBO9eCRPGTg0iUQ=s900-c-k-c0xffffffff-no-rj-mo" alt="Avatar">
+            </div>
+            <div class="dropdown-menu dropdown-menu-left">
+              <div class="dropdown-item" (click)="editUser()">Tài khoản</div>
+              <div class="dropdown-item">
+                Nâng cấp lên Premium
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+              <div class="dropdown-item" (click)="logAdmin()">Cài đặt</div>
+              <div class="dropdown-item" (click)="logout()">Đăng xuất</div>
+            </div>
+          </div>
+    </div>
+</div>

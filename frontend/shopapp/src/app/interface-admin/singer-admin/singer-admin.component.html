@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="left-sidebar">
+        <app-left-admin></app-left-admin>
+    </div>
+    <div class="content-area">
+        <div class="header-content">
+            <app-header-after-signin></app-header-after-signin>
+        </div>
+        <div class="main-content">
+            <!-- Nơi hiển thị dữ liệu của bạn -->
+            <div class="btn-yeuthich">Danh Sách Ca Sĩ
+            </div>
+
+            <div class="phobien">
+                <div class="content-phobien"></div>
+                <button class="btn btn-success" (click)="showAddForm = true">Thêm</button>
+                <div class="grid-container">
+
+                    <div *ngFor="let singer of singers" class="grid-item">
+                        <span class="rank">{{ singers.indexOf(singer) + 1 }}</span>
+                        <div class="song-info">
+                            <img [src]="singer.imageUrl" alt="Singer Image">
+                            <span class="song-title" (click)="singer.showTracks = !singer.showTracks">
+                                {{ singer.name }}
+                                <i class="fa fa-chevron-down" style="padding-left: 10px;"
+                                    *ngIf="!singer.showTracks"></i>
+                                <i class="fa fa-chevron-up" style="padding-left: 10px;" *ngIf="singer.showTracks"></i>
+                            </span>
+                            <div *ngIf="singer.showTracks">
+                                <div class="track-grid" *ngFor="let track of singer.tracks">
+                                    <span class="song-title-1">Track ID: {{ track.title }}</span>
+                                    <span class="song-title-1">Duration: {{ track.duration }}</span>
+                                    <span class="song-title-1">Genre: {{ track.genre }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="showAddForm" class="popup-overlay">
+                        <div class="popup-content">
+                            <form (ngSubmit)="addSinger()">
+                                <div>
+                                    <label for="name">Tên:</label>
+                                    <input type="text" class="form-control" id="name" [(ngModel)]="newSinger.name"
+                                        name="name" required>
+                                </div>
+                                <div>
+                                    <label for="image">Ảnh:</label>
+                                    <input type="text" class="form-control" id="image" [(ngModel)]="newSinger.imageUrl"
+                                        name="image" required>
+                                </div>
+                                
+                                <div class="form-button">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        (click)="showAddForm = false">Hủy</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>

@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    height: 100vh;
+    /* Chiều cao bằng 100% chiều cao của viewport */
+    max-width: none;
+  }
+
+  .left-sidebar {
+    margin-top: 10px;
+    width: 25vw;
+  }
+
+  .content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-content {
+    background: rgb(0, 0, 0);
+    flex-grow: 1;
+    /* Chiếm phần còn lại của chiều cao */
+    margin-left: 275px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .btn-yeuthich {
+    font-family: 'CircularStd', sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 20px;
+  }
+  .nghesi-img {
+    padding: 20px;
+    border-radius: 50%;
+    max-width: 50%;
+    height: auto;
+  }
+
+  .user-info {
+    align-items: center; /* Căn giữa theo chiều dọc */
+
+  }
+
+  .image-container {
+    /* position: relative; */ /* Loại bỏ vị trí tương đối */
+    margin-right: 20px; /* Khoảng cách giữa ảnh và thông tin */
+    text-align: center; /* Căn giữa ảnh */
+  }
+
+  .user-details {
+    /* Thêm flex để bố trí các trường */
+    display: flex;
+    flex-direction: column;
+    /* Bố trí theo cột */
+    width: 100%;
+    border-radius: 3px;
+    font-size: 16px;
+    color: white; /* Đặt màu chữ là trắng để dễ nhìn */
+  }
+  .user-details::placeholder {
+    color: white; /* Đặt màu chữ là trắng để dễ nhìn */
+  }
+
+  .form-control {
+    
+    margin-bottom: 15px;
+    background-color: transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Thêm viền trắng mờ */
+  }
+  .form-control::placeholder { 
+    color: white; /* Đặt màu placeholder thành màu trắng */
+  }
+  
+  .input {
+    color: white; /* Đặt màu placeholder thành màu trắng */
+  }

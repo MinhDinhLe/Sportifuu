@@ -1,0 +1,28 @@
+
+<div class="container">
+    <div class="left-sidebar">
+        <app-left-admin></app-left-admin>
+    </div>
+    <div class="content-area">
+        <div class="header-content">
+            <app-header-after-signin></app-header-after-signin> 
+        </div>
+        <div class="main-content">
+            <!-- Nơi hiển thị dữ liệu của bạn -->
+            <div class="btn-yeuthich">Danh Sách Thành Viên</div>
+            <div class="phobien">
+                <div class="content-phobien"></div>
+                <div class="grid-container">
+                    <div *ngFor="let user of users" class="grid-item">
+                        <span class="rank">{{ users.indexOf(user) + 1 }}</span> <div class="song-info">
+                            <img src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg" alt="User Image">
+                            <span class="song-title">{{ user.name }}</span> 
+                            <span class="song-title-1">{{ user.email }}</span> 
+                            <span class="song-title-2">{{ user.phone }}</span> 
+                            <i class="fa-regular fa-heart heart-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>

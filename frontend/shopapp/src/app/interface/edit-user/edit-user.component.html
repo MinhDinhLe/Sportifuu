@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="left-sidebar">
+      <app-leftbar></app-leftbar>
+    </div>
+    <div class="content-area">
+      <div class="header-content">
+        <!--  Thêm phần header nếu cần -->
+      </div>
+      <div class="main-content">
+        <div class="btn-yeuthich">Thay đổi thông tin tài khoản</div>
+        <div class="row">
+          <div class="col-lg-6 col-md-12 tag">
+            <div class="user-info">
+              <div class="image-container">
+                <img src="https://e7.pngegg.com/pngimages/705/224/png-clipart-user-computer-icons-avatar-miscellaneous-heroes.png"
+                  class="nghesi-img" id="user-avatar">
+                <input type="file" id="upload-avatar" accept="image/*" style="display: none;">
+                <label for="upload-avatar" class="btn btn-success">Thay đổi ảnh</label>
+              </div>
+              <div class="user-details">
+                <div class="form-group">
+                  <label for="username">Tên người dùng:</label>
+                  <input type="text" class="form-control" [(ngModel)]="name" id="username" placeholder='{{userDTO.name}}'>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Số điện thoại:</label>
+                  <input type="tel" class="form-control" [(ngModel)]="phone" id="phone"  placeholder='{{userDTO.phone}}'>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control"  [(ngModel)]="email" id="email" placeholder='{{userDTO.email}}'>
+                </div>
+                <button class="btn btn-primary" type="submit" (click)="editUser()" >Lưu thay đổi</button>
+              </div>
+            </div>
+          </div>
+          <!--  Thêm phần nội dung khác nếu cần -->
+        </div>
+      </div>
+    </div>
+  </div>

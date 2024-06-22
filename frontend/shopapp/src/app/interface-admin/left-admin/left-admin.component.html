@@ -1,0 +1,71 @@
+<style>
+    .left-sidebar {
+        width: 25vw;
+        position: fixed
+            /* Adjust the width as needed */
+    }
+
+    .above {
+        background: #343333;
+        height: 25vh;
+        padding: 30px;
+        border-radius: 10px;
+        /* Bo tròn tất cả các góc */
+    }
+
+    .below {
+        background: #343333;
+        height: 75vh;
+        padding: 20px;
+        border-radius: 10px;
+        /* Bo tròn tất cả các góc */
+        margin-top: 10px;
+        /* Tạo khoảng cách với phần trên */
+    }
+
+    nav {
+        font-family: 'CircularStd', sans-serif;
+        font-size: 20px;
+        color: #ffffff;
+        padding: 3px;
+    }
+</style>
+<div class="d-flex flex-column left-sidebar col-3">
+    <!-- //-----------------------------TRÊN--------------------------------------// -->
+    <div class="d-flex flex-column above">
+        <div class="d-flex align-items-center mb-3 logo">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="https://zeevector.com/wp-content/uploads/Spotify-Black-and-White-Logo.png" width="78"
+                    height="24" class="me-2">
+            </a>
+        </div>
+        <nav>
+            <a href="#" class="d-flex mb-lg-0 text-white text-decoration-none">
+                <i class="fa-solid fa-house"></i>
+                <p style="margin-left: 20px;font-size: 20px;">Trang chủ</p>
+            </a>
+            <a href="#" class="d-flex mb-lg-0 text-white text-decoration-none">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p style="margin-left: 20px;font-size: 20px;">Tìm kiếm</p>
+            </a>
+        </nav>
+    </div>
+    <!-- //-----------------------------DƯỚI--------------------------------------// -->
+    <div class="d-flex flex-column flex-grow-1 below">
+        <nav>
+        
+        <a href="#" class="d-flex mb-lg-0 text-white text-decoration-none">
+            <i class="fa-solid fa-house"></i>
+            <p style="margin-left: 20px;font-size: 20px;">Danh sách thành viên</p>
+        </a>
+        <a href="/getSinger" class="d-flex mb-lg-0 text-white text-decoration-none">
+            <i class="fa-solid fa-house"></i>
+            <p style="margin-left: 20px;font-size: 20px;">Danh sách ca sĩ</p>
+        </a>
+        <a href="/getSong" class="d-flex mb-lg-0 text-white text-decoration-none">
+            <i class="fa-solid fa-house"></i>
+            <p style="margin-left: 20px;font-size: 20px;">Danh sách bài hát</p>
+        </a>
+        </nav>
+    </div>
+</div>

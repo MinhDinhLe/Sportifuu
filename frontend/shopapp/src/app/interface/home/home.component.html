@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="left-sidebar">
+    <app-leftbar></app-leftbar>
+  </div>
+  <div class="content-area">
+    <div class="header-content">
+      <app-header *ngIf="!isLoggedIn()"></app-header>
+      <app-header-after-signin *ngIf="isLoggedIn()"></app-header-after-signin>
+
+    </div>
+    <div class="main-content">
+      <div class="category">
+        <div class="category-header">
+          <h2 class="btn-yeuthich">Nghệ Sĩ Phổ Biến</h2>
+          <div class="navigation-buttons">
+            <i class="fa-solid fa-chevron-left text-decoration-none" (click)="previousSingers()"></i>
+            <i class="fa-solid fa-chevron-right text-decoration-none" (click)="nextSingers()"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 tag" *ngFor="let singer of displayedSingers">
+            <div class="image-container" *ngIf="singer">
+              <img [src]="singer.imageUrl" class="nghesi-img" (click)="details(singer.name)">
+              <div class="play-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <h3 class="tennghesi">{{ singer.name }}</h3>
+              <h3 class="tagnghesi">Nghệ Sĩ</h3>
+            </div>
+            <!-- Thêm một div trống nếu không có nghệ sĩ -->
+            <div class="empty-singer" *ngIf="!singer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thêm các mục thể loại khác tương tự -->
+      <div *ngFor="let genre of genres">
+        <div class="category">
+          <div class="category-header">
+            <h2 class="btn-yeuthich">{{ genre }}</h2>
+            <div class="navigation-buttons">
+              <i class="fa-solid fa-chevron-left text-decoration-none" (click)="previousTracks(genre)"></i>
+              <i class="fa-solid fa-chevron-right text-decoration-none" (click)="nextTracks(genre)"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 tag" *ngFor="let track of getDisplayedTracks(genre)">
+              <div class="image-container" *ngIf="track">
+                <img [src]="track.image" class="track-img" (click)="detailsTrack(track.title)">
+                <div class="play-icon">
+                  <i class="fas fa-play-circle"></i>
+                </div>
+                <h3 class="track-title">{{ track.title }}</h3>
+                <h3 class="track-artist">{{ track.artist }}</h3>
+              </div>
+              <div class="empty-track" *ngIf="!track"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

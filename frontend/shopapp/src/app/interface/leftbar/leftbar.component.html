@@ -1,0 +1,117 @@
+<style>
+    .left-sidebar {
+        width: 25vw;
+        position: fixed
+            /* Adjust the width as needed */
+    }
+
+    .above {
+        background: rgb(18, 18, 18);
+        height: 25vh;
+        padding: 30px;
+        border-radius: 10px;
+        /* Bo tròn tất cả các góc */
+    }
+
+    .below {
+        background: rgb(18, 18, 18);
+        height: 75vh;
+        padding: 20px;
+        border-radius: 10px;
+        /* Bo tròn tất cả các góc */
+        margin-top: 10px;
+        /* Tạo khoảng cách với phần trên */
+    }
+
+    nav {
+        font-family: 'CircularStd', sans-serif;
+        font-size: 20px;
+        color: #ffffff;
+        padding: 3px;
+    }
+
+    .current-track {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* Chiếm toàn bộ chiều cao của phần dưới */
+        margin-top: 0; /* Loại bỏ margin-top */
+    }
+
+    .track-image {
+        width: 150px; /* Tăng kích thước hình tròn */
+        height: 150px; /* Tăng kích thước hình tròn */
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .track-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .track-title {
+        margin-top: 20px; /* Tạo khoảng cách giữa hình tròn và tên bài hát */
+        font-size: 18px; /* Tăng kích thước chữ tên bài hát */
+        color: #fff;
+        text-align: center;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotating {
+        animation: rotate 5s linear infinite;
+    }
+</style>
+<div class="d-flex flex-column left-sidebar col-3">
+    <!-- //-----------------------------TRÊN--------------------------------------// -->
+    <div class="d-flex flex-column above">
+        <div class="d-flex align-items-center mb-3 logo">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="https://zeevector.com/wp-content/uploads/Spotify-Black-and-White-Logo.png" width="78"
+                    height="24" class="me-2">
+            </a>
+        </div>
+        <nav>
+            <a href="#" class="d-flex mb-lg-0 text-white text-decoration-none">
+                <i class="fa-solid fa-house"></i>
+                <p style="margin-left: 20px;font-size: 20px;">Trang chủ</p>
+            </a>
+            <a href="#" class="d-flex mb-lg-0 text-white text-decoration-none">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p style="margin-left: 20px;font-size: 20px;">Tìm kiếm</p>
+            </a>
+        </nav>
+    </div>
+    <!-- //-----------------------------DƯỚI--------------------------------------// -->
+    <div class="d-flex flex-column flex-grow-1 below">
+        <nav>
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-layer-group" style="margin-right: 20px;padding: 10px;"></i>
+                    <p style="padding-top: 10px;margin-right: 20px;">Thư Viện</p>
+                </div>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </a>
+        </nav>
+        <div class="current-track" *ngIf="currentTrack">
+            <div class="track-image" [class.rotating]="isPlaying">
+              <img [src]="currentTrack.image" alt="Track Image">
+            </div>
+            <p class="track-title">{{ currentTrack.title }}</p>
+          </div>
+    </div>
+    
+</div>

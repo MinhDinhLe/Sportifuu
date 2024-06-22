@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="left-sidebar">
+        <app-left-admin></app-left-admin>
+    </div>
+    <div class="content-area">
+        <div class="header-content">
+            <app-header-after-signin></app-header-after-signin>
+        </div>
+        <div class="main-content">
+            <!-- Nơi hiển thị dữ liệu của bạn -->
+            <div class="btn-yeuthich">Danh Sách Bài Hát
+            </div>
+            <div class="content-wrapper">
+                
+                <div class="phobien">Phổ Biến
+                    <div class="content-phobien"></div>
+                    <div *ngFor="let track of tracks" class="grid-item">
+                        <span class="rank">{{ tracks.indexOf(track) + 1 }}</span>
+                        <div class="song-info">
+                            <img [src]="track.image" alt="Song Image">
+                            <span class="song-title">{{track.title}}</span>
+                            <span class="song-title-1">{{track.genre}}</span>
+                            <span class="song-title-2" >{{track.duration}}
+                            </span>
+                            <span class="song-title-2" style="display: flex; flex-direction: column;">
+                               
+                                <button class="btn btn-success" style="margin-bottom: 10px;" (click)="deleteTrack(track.title)">Xóa</button>
+                                <button class="btn btn-success" (click)="showAddForm = true">Sửa</button>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="phobien">
+                <div class="content-phobien"></div>
+                <button class="btn btn-success" (click)="showAddForm = true">Thêm</button>
+                <div class="grid-container">
+                    <div *ngIf="showAddForm" class="popup-overlay">
+                        <div class="popup-content">
+                            <form (ngSubmit)="addTrack()">
+                                <div>
+                                    <label for="name">Tên:</label>
+                                    <input type="text" class="form-control" id="name" [(ngModel)]="newTrack.title"
+                                        name="name" required>
+                                </div>
+                                <div>
+                                    <label for="name">Độ Dài:</label>
+                                    <input type="number" class="form-control" id="name" [(ngModel)]="newTrack.duration"
+                                        name="name" required>
+                                </div>
+                                <div>
+                                    <label for="name">Thể Loại:</label>
+                                    <input type="text" class="form-control" id="name" [(ngModel)]="newTrack.genre"
+                                        name="name" required>
+                                </div>
+                                <div>
+                                    <label for="audioFile">Tệp nhạc:</label>
+                                    <input type="file" class="form-control" id="audioFile" (change)="onFileSelected($event)" accept="audio/*" required>
+                                  </div>
+                                <div>
+                                    <label for="image">Ảnh:</label>
+                                    <input type="text" class="form-control" id="image" [(ngModel)]="newTrack.image"
+                                        name="image" required>
+                                </div>
+                                <div>
+                                    <label for="singer">Singer:</label>
+                                    <select id="singer" [(ngModel)]="newTrack.selectedSinger" name="singer"  class="custom-select" required>
+                                        <option *ngFor="let singer of singers" [ngValue]="singer.name" class="select-container">
+                                            {{ singer.name }}
+                                        </option>
+                                        <p class="text-danger"  *ngIf="!newTrack.selectedSinger">Please select Name of Singer</p>
+                                    </select>
+                                </div>
+                                <div class="form-button">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        (click)="showAddForm = false">Hủy</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>

@@ -1,0 +1,38 @@
+<style>
+    .header{
+        background: rgb(18, 18, 18);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    .signup-in{
+        font-family: 'CircularStd', sans-serif;
+    }
+    .btn-signup {
+        color: rgb(163, 163, 163);
+        padding-right: 40px;
+    }
+    .btn-signin{
+        display: inline-block; /* Hiển thị nút dạng inline-block */
+        padding: 10px 20px; /* Điều chỉnh kích thước nút */
+        background-color: white; /* Màu nền trắng */
+        color: black; /* Màu chữ đen */
+        border-radius: 50px; /* Tạo góc bo tròn */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Bóng mờ xung quanh */
+        transition: box-shadow 0.3s ease; /* Hiệu fruit khi hover */
+    }
+    .btn-signin:hover {
+        transform: scale(1.1);
+    }
+</style>
+<div class="d-flex flex-row header">
+    <div class="cheveron" style="background: rgb(18, 18, 18);">
+        <a class="fa-solid fa-chevron-left text-decoration-none "   style="color: #888888;"></a>
+        <a class="fa-solid fa-chevron-right text-decoration-none" style="color: #888888;padding-left:9px;"></a>
+    </div>
+    <div class="signup-in">
+        <a class="btn-signup text-decoration-none" [routerLink]="['/signup']">Đăng Ký</a>
+        <a class="btn-signin text-decoration-none"[routerLink]="['/signin']">Đăng Nhập</a>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+.header{
+    background: rgb(18, 18, 18);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    justify-content: space-between;
+    padding: 10px;
+}
+.signup-in{
+    font-family: 'CircularStd', sans-serif;
+}
+.btn-signup {
+    color: rgb(163, 163, 163);
+    padding-right: 40px;
+}
+.btn-signin{
+    display: inline-block; /* Hiển thị nút dạng inline-block */
+    padding: 10px 20px; /* Điều chỉnh kích thước nút */
+    background-color: white; /* Màu nền trắng */
+    color: black; /* Màu chữ đen */
+    border-radius: 50px; /* Tạo góc bo tròn */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Bóng mờ xung quanh */
+    transition: box-shadow 0.3s ease; /* Hiệu fruit khi hover */
+}
+.btn-signin:hover {
+    transform: scale(1.1);
+}
+.avatar-container {
+    padding-left: 10px;
+    position: relative;
+    display: inline-block;
+  }
+  .avatar-container:hover .dropdown-menu,
+.avatar-container.active .dropdown-menu {
+  display: block;
+}
+  
+  .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    left: 10%;
+    transform: translateX(-80%)
+  }
+  
+  .dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #444;
+  }
+  
+  .show {
+    display: block;
+  }

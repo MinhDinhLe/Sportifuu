@@ -1,0 +1,27 @@
+<div class="music-player">
+  <audio #audioPlayer></audio>
+  <div class="player-controls">
+    <button class="btn-prev" (click)="prevTrack()">
+      <i class="fas fa-step-backward"></i>
+    </button>
+    <button class="btn-play" (click)="playPause()">
+      <i class="fas" [ngClass]="{'fa-play': !isPlaying, 'fa-pause': isPlaying}"></i>
+    </button>
+    <button class="btn-next" (click)="nextTrack()">
+      <i class="fas fa-step-forward"></i>
+    </button>
+  </div>
+  <div class="progress-bar">
+    <input type="range" min="0" max="100" [(ngModel)]="progress" (input)="updateProgress($event)">
+  </div>
+  <div class="time-info">
+    <span class="current-time">{{ currentTime }}</span>
+    <span class="total-time">{{ totalTime }}</span>
+  </div>
+  <div class="volume-control">
+    <button (click)="toggleMute()">
+      <i class="fas" [ngClass]="{'fa-volume-up': !isMuted, 'fa-volume-mute': isMuted}"></i>
+    </button>
+    <input type="range" min="0" max="1" step="0.1" [(ngModel)]="volume" (input)="updateVolume($event)">
+  </div>
+</div>

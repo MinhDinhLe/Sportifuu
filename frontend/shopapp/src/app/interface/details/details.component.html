@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="left-sidebar">
+        <app-leftbar [currentTrack]="currentTrack" [isPlaying]="isPlaying"></app-leftbar>
+    </div>
+    <div class="content-area">
+        <div class="header-content">
+            <app-header *ngIf="!isLoggedIn()"></app-header>
+            <app-header-after-signin *ngIf="isLoggedIn()"></app-header-after-signin>
+        </div>
+        <div class="main-content">
+            <div class="content-wrapper">
+                <div class="gioithieu">
+                    <img id="header-bg" [src]="singers.tracks.length > 0 ? singers.tracks[0].image : ''"
+                        alt="Header Background" style="display: block;">
+                    <span class="data-overlay data-1">{{singers.name}}</span>
+                    <span class="data-overlay data-2">1.269.117 người nghe hằng tháng</span>
+                </div>
+                <div class="play-icon-container">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <div class="phobien">Phổ Biến
+                    <div class="content-phobien"></div>
+                    <div class="grid-container">
+                        <div class="grid-item" *ngFor="let track of singers.tracks">
+                            <span class="rank">{{singers.tracks.indexOf(track) + 1}}</span>
+                            <div class="song-info">
+                                <img [src]="track.image" alt="Song Image">
+                                <span class="song-title">{{ track.title }}</span>
+                                <span class="song-title-1">{{ track.genre }}</span>
+                                <span class="song-title-2">{{ track.duration }}</span>
+                                <i class="fa-regular fa-heart heart-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <app-footer *ngIf="selectedTrack" [selectedTrack]="selectedTrack" [tracks]="singers.tracks"
+                        (trackChange)="onTrackChange($event)" (playingStatusChange)="updatePlayingStatus($event)">
+                    </app-footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
