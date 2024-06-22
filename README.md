@@ -15,8 +15,8 @@ JAVA:
 - Springboot
 - JWT
 Angular:
-MongoDB:
-Firebase:
+JAVA:
+JAVA:
 ## Cài đặt
 
 1. Sao chép kho lưu trữ: `git clone`
