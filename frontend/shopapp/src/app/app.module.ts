@@ -30,6 +30,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from '../enviroments/environment';
 import { CommonModule } from '@angular/common';
 import { DetailsTrackComponent } from './interface/details-track/details-track.component';
+
 @NgModule({
   declarations: [
     HomeComponent,

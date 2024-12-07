@@ -86,3 +86,10 @@
                 </div>
 
             </div>
+            <button (click)="startRecording()">Bắt đầu ghi âm</button>
+            <button (click)="stopRecording()">Dừng ghi âm</button>
+            <div *ngIf="searchResult">
+                <h3>Kết quả tìm kiếm:</h3>
+                <pre>{{ searchResult | json }}</pre>
+            </div>
+</div>

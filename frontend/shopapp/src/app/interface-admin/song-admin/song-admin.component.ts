@@ -4,6 +4,7 @@ import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
 import { SingerDTO } from '../../dtos/singer/singer.dto';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-song-admin',
   templateUrl: './song-admin.component.html',
@@ -22,7 +23,10 @@ export class SongAdminComponent {
     fileUrl: '',
     selectedSinger:''
   }
-  constructor(private router: Router,private adminService: AdminService,private storage: AngularFireStorage) {
+  audioBlob: Blob | null = null; // Thêm thuộc tính để lưu trữ Blob âm thanh
+  searchResult: any;
+  mediaRecorder: MediaRecorder | null = null; // Thêm thuộc tính để lưu trữ MediaRecorder
+  constructor(private router: Router,private adminService: AdminService,private storage: AngularFireStorage, private http: HttpClient) {
     this.singers = [];
     this.tracks=[];
   }
@@ -61,16 +65,14 @@ export class SongAdminComponent {
             fileUrl: downloadURL,
             selectedSinger: this.newTrack.selectedSinger
           };
-  
+
           this.adminService.addTrack(newTrack).subscribe(
             (response) => {
               console.log('Đã thêm bài hát:', response);
-              // Xử lý logic sau khi thêm thành công, ví dụ: reset form, reload danh sách bài hát
               this.showAddForm = false;
             },
             (error) => {
               console.error('Lỗi khi thêm bài hát:', error);
-              // Xử lý lỗi, ví dụ: hiển thị thông báo lỗi
             }
           );
         });
@@ -93,4 +95,45 @@ export class SongAdminComponent {
   onFileSelected(event: any) {
     this.selectedFiles = event.target.files;
   }
+  startRecording() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      this.mediaRecorder = new MediaRecorder(stream);
+      const audioChunks: Blob[] = [];
+
+      this.mediaRecorder.ondataavailable = event => {
+        audioChunks.push(event.data);
+      };
+
+      this.mediaRecorder.onstop = () => {
+        this.audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+      };
+
+      this.mediaRecorder.start();
+    }).catch(error => {
+      console.error('Lỗi khi bắt đầu ghi âm:', error);
+    });
+  }
+
+  stopRecording() {
+    if (this.mediaRecorder) {
+      this.mediaRecorder.stop(); // Dừng ghi âm
+      this.mediaRecorder = null; // Đặt lại mediaRecorder
+    } else {
+      console.error('Không có mediaRecorder để dừng ghi âm.');
+    }
+
+    if (this.audioBlob) {
+      const formData = new FormData();
+      formData.append('file', this.audioBlob, 'recording.wav');
+
+      this.http.post('http://localhost:8080/admin/recognizeSong', formData).subscribe(response => {
+        console.log('Kết quả tìm kiếm:', response);
+      }, error => {
+        console.error('Lỗi khi tìm kiếm bài hát:', error);
+      });
+    } else {
+      console.error('Không có âm thanh nào được ghi lại.');
+    }
+  }
+
 }

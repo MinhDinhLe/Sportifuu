@@ -30,7 +30,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NotNull HttpServletRequest request,@NotNull HttpServletResponse response,@NotNull FilterChain filterChain) throws ServletException, IOException {
         final List<Pair<String,String>> bypassToken = Arrays.asList(
                 Pair.of("/api/adduser","POST"),
-                Pair.of("/login","POST")
+                Pair.of("/login","POST"),
+                Pair.of("/admin/recognizeSong","POST"),
+                Pair.of("/recognizeSong","POST")
         );
         for (Pair<String,String> bypasstoken:bypassToken){
             if (request.getServletPath().contains(bypasstoken.getFirst())&&

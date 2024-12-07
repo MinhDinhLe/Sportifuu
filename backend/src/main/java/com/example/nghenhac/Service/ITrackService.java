@@ -14,4 +14,5 @@ public interface ITrackService {
 
     TrackDTO mapToTrackDTO(TracksEntity track);
      TrackDTO getDetailsTrack(String name) ;
+    void saveMusicData(String title, String artist, String imageUrl, String genre);
 }

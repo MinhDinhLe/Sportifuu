@@ -17,6 +17,7 @@ export class HomeComponent {
   currentIndex: number = 0;
   currentIndexByGenre: { [genre: string]: number } = {};
   selectedTrack: any = null; 
+  
   constructor(private router: Router, private userService: UserService,private adminService: AdminService){
     this.singers = [];
     this.tracks = [];

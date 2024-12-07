@@ -51,6 +51,7 @@ editUser(){
             name:responce.name,
             email:responce.email,
             phone:responce.phone,
+            role:responce.role
           }
           this.userService.saveUsertoLocalStorage(this.userResponce);
           this.router.navigateByUrl('/home')

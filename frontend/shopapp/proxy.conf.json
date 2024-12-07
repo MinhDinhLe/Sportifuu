@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://api.shazam.com",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

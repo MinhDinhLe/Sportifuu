@@ -2,6 +2,7 @@ package com.example.nghenhac.Model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -15,7 +16,8 @@ public class TracksEntity {
     private String genre;
     private String fileUrl;
     private String image;
-
+    @DBRef
+    private ObjectId singerId; // Thêm singerId
     public String getImage() {
         return image;
     }
@@ -39,7 +41,14 @@ public class TracksEntity {
         this.releaseDate = releaseDate;
         this.genre = genre;
     }
-
+    public TracksEntity(ObjectId id, String title, int duration, String releaseDate, String genre, String image) {
+        this.id = id;
+        this.title = title;
+        this.duration = duration;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.image = image;
+    }
     public TracksEntity() {
 
     }
@@ -84,4 +93,7 @@ public class TracksEntity {
         this.genre = genre;
     }
 
+    public void setSingerId(ObjectId singerId) {
+        this.singerId = singerId;
+    }
 }
